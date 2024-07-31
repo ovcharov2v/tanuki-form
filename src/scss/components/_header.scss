@@ -1,0 +1,28 @@
+.header {
+	background-color: $color-white;
+
+	&__container {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-top: 20px;
+		padding-bottom: 20px;
+
+		@include desktop {
+			padding-top: 32px;
+			padding-bottom: 32px;
+		}
+	}
+
+	&__logo {
+		flex-shrink: 0;
+		display: block;
+		width: 100%;
+		max-width: 148px;
+
+		@include desktop {
+			max-width: 231px;
+		}
+	}
+}

@@ -1,0 +1,48 @@
+extends pug/base
+
+prepend vars
+	//-
+
+append vars
+	- title = "Тануки Family анкета"
+	- meta.description = "Тануки Family анкета"
+block content
+	// Section Form
+	section.section-form.container
+		.section-form__panel
+			// Form
+			.section-form__form-box
+				.section-form__content
+					h1.section-form__title Только
+						|
+						|
+						span.text-red один
+						br
+						|вопрос
+					p.section-form__text Мы бы с радостью рекомендовали вас всем коллегам как прекрасного гостя. А вы нас? Вот тут у нас шкала вашей оценки TanukiFamily. Не одного какого-то заказа, а в общем и целом.
+					img.section-form__image(src="images/question.svg", alt)
+				form.section-form__form(method="post", action="#")
+					h2.section-form__form-title Готовы ли вы рекомендовать нас своим друзьям, родственникам и знакомым?
+					input.section-form__form-result(type="hidden", name="result")
+					.section-form__hearts-row
+						- let n = 1;
+						while n <= 10
+							// heart
+							button.section-form__heart(type="button")
+								span.section-form__heart-value= n
+								+svg("heart")(class="section-form__heart-bg")
+							- n++
+					p.section-form__form-text Пожалуйста, выберите оценку от 1 до 10, где 1 — это никогда и никому, а 10 — всем и всегда.
+					p.section-form__form-error Это обязательный вопрос
+					button.button.section-form__form-submit(type="submit") Ответить
+			// Success
+			.section-form__success-box(style="display: none;")
+				.section-form__success-grid
+					h2.section-form__success-title Спасибо
+						br
+						|за прохождение
+						br
+						|опроса!
+					p.section-form__success-text Заходите к нам почаще или заказывайте доставку
+					img.section-form__success-image(src="images/check.svg", alt)
+				a.button.section-form__success-link(href="https://tanukifamily.ru/") Перейти на Tanukifamily.ru
