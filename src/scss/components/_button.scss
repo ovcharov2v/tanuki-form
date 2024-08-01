@@ -31,4 +31,40 @@
 	&:active {
 		background-color: darken($color-red, 5%);
 	}
+
+	&:disabled {
+		color: transparent;
+		cursor: wait;
+
+		&:before {
+			opacity: 1;
+		}
+	}
+
+	&::before {
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 24px;
+		height: 24px;
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_2_3488)'%3E%3Cpath d='M12 21C10.22 21 8.47991 20.4722 6.99987 19.4832C5.51983 18.4943 4.36627 17.0887 3.68508 15.4442C3.00389 13.7996 2.82567 11.99 3.17293 10.2442C3.5202 8.49836 4.37737 6.89471 5.63604 5.63604C6.89471 4.37737 8.49836 3.5202 10.2442 3.17293C11.99 2.82567 13.7996 3.0039 15.4442 3.68508C17.0887 4.36627 18.4943 5.51983 19.4832 6.99987C20.4722 8.47991 21 10.22 21 12L18.9936 12C18.9936 10.6168 18.5835 9.26464 17.815 8.11455C17.0465 6.96445 15.9543 6.06806 14.6763 5.53873C13.3984 5.0094 11.9922 4.8709 10.6356 5.14075C9.27898 5.4106 8.03283 6.07668 7.05476 7.05476C6.07668 8.03283 5.4106 9.27898 5.14075 10.6356C4.8709 11.9922 5.0094 13.3984 5.53873 14.6763C6.06806 15.9543 6.96445 17.0465 8.11455 17.815C9.26464 18.5835 10.6168 18.9936 12 18.9936L12 21Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_2_3488'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+		background-size: 24px 24px;
+		background-position: center;
+		background-repeat: no-repeat;
+		pointer-events: none;
+		content: "";
+		opacity: 0;
+		transition: opacity $transition-default;
+		animation: loading 1s ease-out infinite;
+		@keyframes loading {
+			0% {
+				transform: translate(-50%, -50%) rotate(0);
+			}
+			100% {
+				transform: translate(-50%, -50%) rotate(360deg);
+			}
+		}
+	}
 }
