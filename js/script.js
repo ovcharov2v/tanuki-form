@@ -58,9 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		// Отправка формы
 		//....
 
-		formBox.style.display = 'none'; // Скрыть форму
-		successBox.style.display = 'block'; // Показать сообщение об успехе
+		setTimeout(() => { // имитация задержки при отправке формы
 
-		submitBtn.disabled = false;
+			formBox.style.display = 'none'; // Скрыть форму
+			successBox.style.display = 'block'; // Показать сообщение об успехе
+			submitBtn.disabled = false;
+
+		}, 2000)
 	}
 })
